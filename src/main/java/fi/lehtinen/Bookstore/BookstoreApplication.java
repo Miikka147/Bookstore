@@ -2,7 +2,7 @@ package fi.lehtinen.Bookstore;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.math.BigDecimal;
+
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Bean;
 
 import fi.lehtinen.Bookstore.domain.Book;
 import fi.lehtinen.Bookstore.domain.BookRepository;
+import fi.lehtinen.Bookstore.domain.Category;
+import fi.lehtinen.Bookstore.domain.CategoryRepository;
 
 
 @SpringBootApplication
@@ -22,14 +24,17 @@ public class BookstoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner Bookstore(BookRepository repository) {
+	public CommandLineRunner Bookstore(BookRepository brepository,CategoryRepository crepository) {
 		return (args) -> {
 			log.info("save books");
-			repository.save(new Book("Harry Potter","J.K Rowling","3898208029",1985,20.00));
-			repository.save(new Book("Kirja","Matti Meikäläinen","820982908",1987,30.59));	
+			crepository.save(new Category("Horror")); // uusi kategoria
+			crepository.save(new Category("Fantasy"));
+			
+			brepository.save(new Book("Harry Potter","J.K Rowling","3898208029",1985,20.00,crepository.findByName("Horror").get(0)));
+			brepository.save(new Book("Kirja","Matti Meikäläinen","820982908",1987,30.59,crepository.findByName("Fantasy").get(0)));	
 			
 			log.info("fetch all books");
-			for (Book book : repository.findAll()) {
+			for (Book book : brepository.findAll()) {
 				log.info(book.toString());
 			}
 
