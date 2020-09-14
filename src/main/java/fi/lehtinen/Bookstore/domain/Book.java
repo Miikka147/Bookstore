@@ -21,6 +21,15 @@ public class Book {
 	@JoinColumn(name="categoryid")
 	private Category category;
 
+public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 public Book(String title,String author, String isbn, int year, double price,Category category) {
 	this.title = title;
 	this.author = author;

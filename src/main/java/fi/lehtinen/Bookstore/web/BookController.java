@@ -49,7 +49,9 @@ public class BookController {
     @RequestMapping(value = "/edit/{id}")
     public String editBook(@PathVariable("id") Long bookId, Model model) {
     	model.addAttribute("book", brepository.findById(bookId));
+    	model.addAttribute("categories", crepository.findAll());
     	brepository.deleteById(bookId);
+    	
     	return "/editbook";
     }   
 }
