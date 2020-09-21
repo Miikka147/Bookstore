@@ -5,17 +5,17 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.3.RELEASE</version>
+		<version>2.3.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>fi.lehtinen</groupId>
-	<artifactId>Bookstore</artifactId>
+	<artifactId>Book-store</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Bookstore</name>
-	<description>Bookstore training project</description>
+	<name>Book-store</name>
+	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 	</properties>
 
 	<dependencies>
