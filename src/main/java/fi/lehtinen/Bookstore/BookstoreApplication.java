@@ -17,12 +17,12 @@ import fi.lehtinen.Bookstore.domain.CategoryRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
-	private static final Logger log = LoggerFactory.getLogger(BookstoreApplication.class);
+	//private static final Logger log = LoggerFactory.getLogger(BookstoreApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
-	
+	/*
 	@Bean
 	public CommandLineRunner Bookstore(BookRepository brepository,CategoryRepository crepository) {
 		return (args) -> {
@@ -39,5 +39,5 @@ public class BookstoreApplication {
 			}
 
 		};
-	}
+	}*/
 }
